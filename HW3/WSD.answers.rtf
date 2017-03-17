@@ -1,0 +1,140 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red53\green53\blue53;}
+\margl1440\margr1440\vieww15720\viewh10260\viewkind0
+\deftab560
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f0\fs24 \cf2 Robin Mehta (robimeht)\
+Homework 3\
+\
+
+\b\fs28 plant.wsd
+\b0\fs24 \
+\
+Fold 0: \
+Accuracy: 72.2222222222%\
+Fold 1:\
+Accuracy: 31.5789473684%\
+Fold 2:\
+Accuracy: 65.7894736842%\
+Fold 3: \
+Accuracy: 57.8947368421%\
+Fold 4: \
+Accuracy: 33.3333333333%\
+
+\b Average Accuracy: 52.1637426901%
+\b0 \
+\
+\
+Three Errors:\
+\
+1) For instance plant.1000000, my program tagged it as a living plant instead of a factory plant. I noticed certain words that were ambiguous (natural, arrangement, community, body, etc), to the point of not being very useful in predicting correctly. A potential solution might be to access a tree of synonyms or related words to \'93factory\'94 and \'93living\'94, where comparing levels could disambiguate the words being used (natural, arrangement, etc) to disambiguate the root word (plant). I don\'92t know if this would work, but it could be interesting to use an online thesaurus program, and have the \'93factory\'94 sense be a root node, with each potential \'93click\'94 on a synonym being new level of nodes down (essentially building a tree of synonyms and comparing the levels). // This is just my own idea, not sure if it would work. \
+\
+2) I noticed that certain words should have a higher weight in Naive Bayes Algorithm than others. For example, in instance plant.1000162, my program predicted it to be factory plant when the actual sense was a living plant. There are a few words that seem to be more useful than others, like \'93agriculture, farm, and shrub. I think it would be better if those words had higher weights than other words in the instance.\
+\
+3) In instance plant.1000157, my program predicted it to be a factory plant rather than a living plant. In the sentence that contains <head>plant</head>, it would have made more sense to give words closest to the ambiguous word a higher weight than others in the context. For example, most of the paragraph doesn\'92t pertain to living plants, but the word \'93repotted\'94 right before <head>plant</head> is a much more important context clue.\
+Another potential idea is to create a list of properties known to differ between a living_plant and a factory_plant, and identify semantics that way. For example, we know that living_plants need to be potted inside or planted outside, whereas factory_plants need to be built. If we use a rule-based system to create models of what each sense of a plant should be like, it might be easier to distinguish.\
+\
+
+\b Other observations:
+\b0 \
+Stop words have really high counts, could potentially skew Naive Bayes. \
+Plural word forms usually have the same semantics as a singular form, and would be better grouped together. \
+Class imbalance made add-one smoothing have worse accuracies than adding .0001 and multiplying it by the unique vocabulary in the denominator. \
+\
+\
+
+\b Additional Word Sense Disambiguation:
+\b0 \
+\
+
+\b bass.wsd\
+
+\b0 \
+Fold 0:\
+Accuracy: 76.1904761905%\
+Fold 1:\
+Accuracy: 90.9090909091%\
+Fold 2:\
+Accuracy: 95.4545454545%\
+Fold 3: \
+Accuracy: 95.4545454545%\
+Fold 4:\
+Accuracy: 95.0%\
+
+\b Average Accuracy: 90.6017316017%
+\b0 \
+\
+
+\b crane.wsd\
+
+\b0 \
+Fold 0:\
+Accuracy: 68.4210526316%\
+Fold 1:\
+Accuracy: 85.0%\
+Fold 2:\
+Accuracy: 75.0%\
+Fold 3: \
+Accuracy: 80.0%\
+Fold 4:\
+Accuracy: 81.25%\
+
+\b Average Accuracy: 77.9342105263%
+\b0 \
+\
+
+\b motion.wsd\
+\
+
+\b0 Fold 0:\
+Accuracy: 50.0%\
+Fold 1:\
+Accuracy: 58.5365853659%\
+Fold 2:\
+Accuracy: 90.243902439%\
+Fold 3: \
+Accuracy: 80.487804878%\
+Fold 4:\
+Accuracy: 73.6842105263%\
+
+\b Average Accuracy: 70.5905006418%
+\b0 \
+\
+
+\b palm.wsd\
+\
+
+\b0 Fold 0:\
+Accuracy: 65.0%\
+Fold 1:\
+Accuracy: 73.1707317073%\
+Fold 2:\
+Accuracy: 63.4146341463%\
+Fold 3: \
+Accuracy: 80.487804878%\
+Fold 4:\
+Accuracy: 76.3157894737%\
+
+\b Average Accuracy: 71.6777920411%
+\b0 \
+\
+
+\b tank.wsd\
+\
+
+\b0 Fold 0:\
+Accuracy: 55.0%\
+Fold 1:\
+Accuracy: 68.2926829268%\
+Fold 2:\
+Accuracy: 78.0487804878%\
+Fold 3: \
+Accuracy: 82.9268292683%\
+Fold 4:\
+Accuracy: 26.3157894737%\
+
+\b Average Accuracy: 62.1168164313%
+\b0 \
+}
